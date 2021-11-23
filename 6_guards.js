@@ -1,0 +1,41 @@
+"use strict";
+exports.__esModule = true;
+function strip(x) {
+    if (typeof x === "number") {
+        return x.toFixed(2);
+    }
+    else
+        return x.trim();
+}
+var MyResponse = /** @class */ (function () {
+    function MyResponse() {
+        this.header = "response Header";
+        this.result = "response result";
+    }
+    return MyResponse;
+}());
+var MyError = /** @class */ (function () {
+    function MyError() {
+        this.header = "error Header";
+        this.message = "error message";
+    }
+    return MyError;
+}());
+function handle(res) {
+    if (res instanceof MyResponse) {
+        return {
+            info: res.header + res.result
+        };
+    }
+    else {
+        return {
+            info: res.header + res.message
+        };
+    }
+}
+function setAlertType(type) {
+    //......
+}
+setAlertType("success");
+setAlertType("warning");
+// setAlertType('def')
